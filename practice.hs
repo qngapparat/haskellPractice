@@ -40,3 +40,23 @@ calcBmis xs = [bmi w h | (w, h) <- xs]
 calcBmis' :: (RealFloat a) => [(a,a)] -> [a]
 calcBmis' xs = [bmi | (w,h) <- xs, let bmi = w / h^2, bmi < 25]
 
+
+-- head' :: [a] -> a  
+-- head' xs = case xs of 
+-- 	[] -> error "No head for empty lists!"  
+--     (y:_) -> x 
+
+--using cases
+describeList :: [a] -> String
+describeList xs = "The list " ++ case xs of
+	[] -> "it's empty"
+	[x] -> "singleton list"
+	xs -> "some longer list"
+
+--using local function definions
+describeList' :: [a] -> String
+describeList' xs = "The list is a " ++ what xs
+	where
+		what [] = "empty"
+		what [x] = "singleton list"
+		what xs = "normal list"
