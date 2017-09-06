@@ -36,3 +36,23 @@ elem' _ [] = False
 elem' a (x:xs)
 	| a == x = True
 	| otherwise = a `elem'` xs
+
+quicksort :: (Ord a) => [a] -> [a]  
+quicksort [] = []
+quicksort (x:xs) =
+	let smallerPart = quicksort [a | a <- xs, a <= x];
+		biggerpart = quicksort [a | a <- xs, a > x]
+	in smallerPart ++ [x] ++ biggerpart
+
+
+
+multThree :: (Num a) => a->a->a -> a
+multThree x y z = x*y*z
+
+
+let multWithTwo = multThree 2
+let multWithEight = multWithTwo 4
+let multWithSixteen = multWithEight 2
+
+divideByTen :: (Floating a) => a -> a
+divideByTen = (/10)
