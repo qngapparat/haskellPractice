@@ -33,4 +33,8 @@ filter' f (x:xs)
 	| f x = x : filter' f xs --in case f x is True
 	| otherwise = filter' f xs
 
- 
+ largestUnder100k :: (Integral a) -> a
+ largestUnder100k = filter p [100000,99999..]
+	where p x = x `mod` 3829 == 0
+
+
