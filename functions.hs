@@ -37,4 +37,3 @@ filter' f (x:xs)
  largestUnder100k = filter p [100000,99999..]
 	where p x = x `mod` 3829 == 0
 
-
